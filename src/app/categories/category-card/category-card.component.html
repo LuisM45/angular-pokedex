@@ -1,0 +1,12 @@
+<mat-card [routerLink]="['/pokemon-list-by-type',type.id]">
+    <mat-card-header>
+        <mat-card-title>
+            {{ type.name | titlecase }}
+        </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{type.imageUrl}}">
+    <mat-card-actions>
+        <button mat-button>Sike!</button>
+        <button mat-button>Share</button>
+    </mat-card-actions>
+</mat-card>

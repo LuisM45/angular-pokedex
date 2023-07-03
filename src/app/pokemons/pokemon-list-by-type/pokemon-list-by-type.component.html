@@ -1,0 +1,7 @@
+<mat-grid-list cols="4" rowHeight="3:4" *ngIf="pokemonList">
+    <mat-grid-tile *ngFor="let pokemon of pokemonList" >
+        {{ pokemon.pokemon.name | titlecase }}
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-progress-bar mode="indeterminate" *ngIf="!pokemonList"></mat-progress-bar>
+  
