@@ -3,6 +3,7 @@ import { PokemonType } from './shared/pokemon-types.interface';
 import { Observable } from 'rxjs/internal/Observable';
 import { delay, map, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -39,13 +40,10 @@ export class CategoryService {
   ];
  
   getTypes():Observable<any>{
-
-    // return of(this.categories)
-    return this.http.get("https://pokeapi.co/api/v2/type/")
-    
+    return this.http.get(`${environment.pokedexBaseUrl}type/`)
   }
 
   getPokemonsDetailsOfType(typeId:number|string):Observable<any>{
-    return this.http.get(`https://pokeapi.co/api/v2/type/${typeId}`)
+    return this.http.get(`${environment.pokedexBaseUrl}type/${typeId}`)
   }
 }
