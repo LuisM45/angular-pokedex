@@ -1,0 +1,6 @@
+<mat-grid-list cols="5" rowHeight="3:5" *ngIf="pokemonList">
+    <mat-grid-tile *ngFor="let pokemon of pokemonList" >
+        <app-pokemon-card [id]="pokemon.name"></app-pokemon-card>
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-progress-bar mode="indeterminate" *ngIf="!pokemonList"></mat-progress-bar>

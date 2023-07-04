@@ -14,7 +14,6 @@ import { CategoriesModule } from './categories/categories.module';
 import { ObservableComponent } from './observable/observable.component';
 import { RouterModule } from '@angular/router';
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
-import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PageNotFoundComponentComponent as PageNotFoundComponent } from './page-not-found-component/page-not-found-component.component';
 import { PokemonsModule } from './pokemons/pokemons.module';
 import { PokemonListByTypeComponent } from './pokemons/pokemon-list-by-type/pokemon-list-by-type.component';
