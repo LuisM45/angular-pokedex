@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>
+    Registrar Comentario
+</h1>
+<form #commentForm="ngForm" (ngSubmit)="commentForm.form.valid && sendCommentSignal()">
+
+</form>
+<div>
+    <mat-form-field>
+        <mat-label>Comentario</mat-label>
+        <textarea 
+        id="ta-comment"
+        name="ta-comment"
+        #ta_comment="ngModel"
+        required
+        cols="500"  matInput [(ngModel)]="comment"></textarea>
+        <mat-hint *ngIf="ta_comment.invalid && (ta_comment.dirty || ta_comment.touched)">
+            Comentario requerido
+        </mat-hint>
+    </mat-form-field>
+</div>
+<div>
+    <button mat-raised-button mat-dialog-close>Cancelar</button>
+    <button mat-button color="primary" (click)="saveComment()">Guardar</button>
+</div>

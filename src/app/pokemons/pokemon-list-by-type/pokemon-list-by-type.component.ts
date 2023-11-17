@@ -22,7 +22,7 @@ export class PokemonListByTypeComponent implements OnInit {
         this.categorySvc.getPokemonsDetailsOfType(id!!)
           .subscribe(
             {
-              next: data => this.pokemonList = data.pokemon
+              next: data => {this.pokemonList = data.pokemon}
             }
           )
       }

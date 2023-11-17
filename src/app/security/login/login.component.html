@@ -1,0 +1,27 @@
+<h1>Login</h1>
+<form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <mat-form-field>
+        <input matInput type="text" id="username" formControlName="username">
+        <mat-label>Username</mat-label>
+        <mat-hint *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+            <div *ngIf="loginForm.controls['username'].errors?.['required']">
+                Usuario requerido
+            </div>
+            <div *ngIf="loginForm.controls['username'].errors?.['minlength']">
+                El usuaario debe tener al menos 4 caracteres
+            </div>
+            <div *ngIf="loginForm.controls['username'].errors?.['email']">
+                El usuario debe ser un email
+            </div>
+        </mat-hint>
+        
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" id="password" formControlName="password">
+        <mat-label>Password</mat-label>
+    </mat-form-field>
+    <ng-container *ngIf="error">
+        {{ error }}
+    </ng-container>
+    <button type="submit" mat-raised-button color="primary">Login</button>
+</form>

@@ -5,6 +5,7 @@ import { CategoriesListComponent } from './categories-list/categories-list.compo
 import { MaterialsModule } from '../materials/materials.module';
 import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
+import { AuthGuard } from '../guards/auth.guard';
 
 
 
@@ -18,7 +19,7 @@ import { Router, RouterModule } from '@angular/router';
     MaterialsModule,
     HttpClientModule,
     RouterModule.forChild([
-      {path: 'category-list', component: CategoriesListComponent}
+      {path: 'category-list', component: CategoriesListComponent, canActivate: [AuthGuard]}
     ])
   ],
   exports: [

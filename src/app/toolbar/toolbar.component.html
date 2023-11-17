@@ -5,7 +5,12 @@
         <div>
             <a mat-button routerLinkActive="active-button" routerLink="category-list"> Categorias </a>
             <a mat-button routerLinkActive="active-button" routerLink="pokemon-list"> Pokemons </a>
+            <a mat-button routerLinkActive="active-button" routerLink="pokemon-statistics"> Estadisticas </a>
+            <a mat-button routerLinkActive="active-button" routerLink="pokemon-favorites"> Favoritos </a>
 
+            <button *ngIf="userData" mat-fab color="primary" (click)="logout()">
+                <mat-icon>person</mat-icon>
+            </button>
         </div>
     </mat-toolbar-row>
 

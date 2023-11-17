@@ -6,6 +6,11 @@ import { PokemonListByTypeComponent } from './pokemon-list-by-type/pokemon-list-
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
+import { PokemonFavoriteComponent } from './pokemon-favorite/pokemon-favorite.component';
+import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
+import { PokemonAddCommentComponent } from './pokemon-add-comment/pokemon-add-comment.component';
+import { FormsModule } from '@angular/forms';
+import { AuthGuard } from '../guards/auth.guard';
 
 
 
@@ -13,17 +18,25 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
   declarations: [
     PokemonDetailComponent,
     PokemonCardComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    PokemonListByTypeComponent,
+    PokemonFavoriteComponent,
+    MyFavoritesComponent,
+    PokemonAddCommentComponent
   ],
   imports: [
     CommonModule,
     MaterialsModule,
+    FormsModule,
     RouterModule.forChild([
-      {path:"pokemon-list", component: PokemonListComponent},
-      {path:"pokemon-list-by-type/:id", component: PokemonListByTypeComponent},
-      {path:"pokemon/:id", component: PokemonDetailComponent},
-    ])
+      {path:"pokemon-list", component: PokemonListComponent, canActivate: [AuthGuard]},
+      {path:"pokemon-list-by-type/:id", component: PokemonListByTypeComponent, canActivate: [AuthGuard]},
+      {path:"pokemon/:id", component: PokemonDetailComponent, canActivate: [AuthGuard]},
+      {path:"pokemon-favorites", component: MyFavoritesComponent, canActivate: [AuthGuard]},
+    ],
+    )
   ]
+  
   
 })
 export class PokemonsModule { }

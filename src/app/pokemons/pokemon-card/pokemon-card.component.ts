@@ -17,7 +17,7 @@ export class PokemonCardComponent implements OnInit {
   ngOnInit(): void {
     this.pokemonSvc.getPokemonDetails(this.id)
     .subscribe({
-      next: (data) => {this.data=data;console.log(this.data)}
+      next: (data) => {this.data=data}
     })
   }
 

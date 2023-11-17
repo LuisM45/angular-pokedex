@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { PokemonService } from 'src/app/pokemon.service';
 
 @Component({
@@ -8,12 +9,22 @@ import { PokemonService } from 'src/app/pokemon.service';
 })
 export class PokemonListComponent implements OnInit {
   pokemonList:any
-  constructor(private pokemonSvc: PokemonService) { }
+  constructor(
+    private pokemonSvc: PokemonService,
+    private angularFirestore: AngularFirestore
+    ) { }
 
   ngOnInit(): void {
+    this.getPokemonList()
+  }
+
+  getPokemonList(){
     this.pokemonSvc.getPokemonList().subscribe(
       {
-        next: data=> {this.pokemonList = data.results}
+        next: data=> {
+          console.log(data)
+          this.pokemonList = data.results
+        }
       }
       )
   }
